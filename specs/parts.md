@@ -24,7 +24,7 @@
 
 
 # 3D Prints
-- 8× 2020 end-cap 608 bearing holder → [printables link in doc]
-- 2× MG958 servo bracket
+- 8× 2020 end-cap 608 bearing holder -> [printables link in doc]
+- 2× MG958 servo bracket ->
 - 1× coupler block (2× 22mm bearing holes + 4× M3 gripper holes)
-- 1× parallel gripper → [makerworld link in doc]
+- 1× parallel gripper -> [makerworld link in doc]
