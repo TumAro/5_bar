@@ -14,8 +14,9 @@
 - MDF base
 - 8x 608zz bearings [only screws](https://onlyscrews.in/products/608-zz-deep-groove-ball-bearing-6x17x6)
 - 4× M8×50mm hex bolt [only screws](https://onlyscrews.in/products/m8-x-50mm-hex-allen-socket-head-ss-304-screw-dia-8mm-length-50mm)
+- 4x M8x60mm hex [chandni]
 - 4× M8 nyloc nut [only screws](https://onlyscrews.in/products/m8-nyloc-nuts-ss304)
-- 8× M8 flat washer [only screws](https://onlyscrews.in/products/m8-washer-ss304)
+- 8× M8 flat washer [chandni]
 - 20× M3×10mm socket screw [only screws](https://onlyscrews.in/products/hex-allen-socket-head-m3-x-10-screw-pack-of-20)
 - 20× M3 nut [only screws](https://onlyscrews.in/products/m3-nut-ss-304)
 - 20× M5×8mm socket screw [only screws](https://onlyscrews.in/products/hex-allen-socket-head-m5-x-8-screw-pack-of-20)
@@ -24,7 +25,7 @@
 
 
 # 3D Prints
-- 8× 2020 end-cap 608 bearing holder -> [printables link in doc]
-- 2× MG958 servo bracket ->
+- 8× 2020 end-cap 608 bearing holder -> [printables](https://www.printables.com/model/58585-608-type-zz-ss-bearing-holder-for-aluminium-extrus)
+- 2× MG958 servo bracket -> [printables](https://www.printables.com/model/254115-simple-servo-mount)
 - 1× coupler block (2× 22mm bearing holes + 4× M3 gripper holes)
-- 1× parallel gripper -> [makerworld link in doc]
+- 1× parallel gripper -> [makerworld link in doc] or [chandni]
