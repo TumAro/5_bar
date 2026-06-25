@@ -6,13 +6,17 @@
     <default>
         <!-- reusable components -->
         <default class="extrusion">
-            <geom type="box" density="2700" friction="0.6 0.1 0.1" rgba="0.8 0.8 0.8 1"
+            <geom type="box" density="2700" friction="0.6 0.1 0.1" rgba="0.9 0.6 0.6 1"
                 contype="0" conaffinity="0"/>
         </default>
         
     </default>
     
     <worldbody>
+    <!-- floor -->
+    <geom name="floor" type="plane" pos="0 0 0" size="5 5 0.1" rgba="0.6 0.6 0.6 1"/>
+
+    <!-- Left Link -->    
     <body name="Crank_L" pos="-0.075 0 0.01">
         <geom class="extrusion" size="0.01 0.1 0.01" pos="0 0.1 0"/>
         <joint name="L_cranker_joint" type="hinge" pos="0 0 0" axis="0 0 1" range="-3.14 3.14" limited="true" damping="0.1"/>
@@ -27,6 +31,7 @@
         </body>
     </body>
 
+    <!-- Rght Link -->
     <body name="Crank_R" pos="0.075 0 0.01">
         <geom class="extrusion" size="0.01 0.1 0.01" pos="0 0.1 0"/>
         <joint name="R_cranker_joint" type="hinge" pos="0 0 0" axis="0 0 1" range="-3.14 3.14" limited="true" damping="0.1"/>
