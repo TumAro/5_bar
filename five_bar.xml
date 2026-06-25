@@ -1,18 +1,56 @@
 <mujoco>
-    <worldbody>
-        <geom type="plane" pos="0 0 0" size="10 10 0.1" rgba="0.5 0.5 0.5 1"/>
-        <body name="test_box" pos="0 0 0.5">
-            <geom type="box" size="0.2 0.3 0.1" rgba="1 0 0 1"/>
-            <body name="forearm" pos="0 0 0.6">
-                <geom type="capsule" size="0.05 0.5"/>
-                <joint name="elbow_joint" type="hinge" axis="0 1 0" range="-90 90"/>
-            </body>        
-        </body>
-    </worldbody>
-    <actuator>
-        <motor name="elbow_motor" joint="elbow_joint" gear="100"/>
-    </actuator>
-    <!-- <equality> -->
+    <!-- <compiler angle="degree"/> -->
+    <!-- <option timestep="0.001" integrator="implicitfast"> -->
+        <!-- <flag warmstart="enable"/> -->
+    <!-- </option> -->
+    <default>
+        <!-- reusable components -->
+        <default class="extrusion">
+            <geom type="box" density="2700" friction="0.6 0.1 0.1" rgba="0.8 0.8 0.8 1"
+                contype="0" conaffinity="0"/>
+        </default>
         
-    <!-- </equality> -->
+    </default>
+    
+    <worldbody>
+    <body name="Crank_L" pos="-0.075 0 0.01">
+        <geom class="extrusion" size="0.01 0.1 0.01" pos="0 0.1 0"/>
+        <joint name="L_cranker_joint" type="hinge" pos="0 0 0" axis="0 0 1" range="-3.14 3.14" limited="true" damping="0.1"/>
+        
+        <body name="Coupler_L" pos="0 0.2 0.02">
+            <geom class="extrusion" size="0.01 0.1 0.01" pos="0 0.1 0"/>
+            <joint name="L_coupler_joint" type="hinge" pos="0 0 0" axis="0 0 1" damping="0.1"/>
+            
+            <body name="E1" pos="0 0.2 0">
+                <site name="sL" pos="0 0 0" size="0.006"/>
+            </body>
+        </body>
+    </body>
+
+    <body name="Crank_R" pos="0.075 0 0.01">
+        <geom class="extrusion" size="0.01 0.1 0.01" pos="0 0.1 0"/>
+        <joint name="R_cranker_joint" type="hinge" pos="0 0 0" axis="0 0 1" range="-3.14 3.14" limited="true" damping="0.1"/>
+        
+        <body name="Coupler_R" pos="0 0.2 0.02">
+            <geom class="extrusion" size="0.01 0.1 0.01" pos="0 0.1 0"/>
+            <joint name="R_coupler_joint" type="hinge" pos="0 0 0" axis="0 0 1" damping="0.1"/>
+            
+            <body name="E2" pos="0 0.2 0">
+                <site name="sR" pos="0 0 0" size="0.006"/>
+            </body>
+        </body>
+    </body>
+    </worldbody>
+
+    <keyframe>
+        <key name="init" qpos="0 -0.3844 0 0.3844"/>
+    </keyframe>
+    
+    <actuator>
+        <position name="servo_L" joint="L_cranker_joint" ctrlrange="-3.14 3.14" kp="50" />
+        <position name="servo_R" joint="R_cranker_joint" ctrlrange="-3.14 3.14" kp="50"/>
+    </actuator>
+    <equality>
+        <connect site1="sL" site2="sR"/>
+    </equality>
 </mujoco>
