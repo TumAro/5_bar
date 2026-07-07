@@ -22,10 +22,10 @@
         <joint name="L_cranker_joint" type="hinge" pos="0 0 0" axis="0 0 1" range="-3.14 3.14" limited="true" damping="0.1"/>
         
         <body name="Coupler_L" pos="0 0.2 0.02">
-            <geom class="extrusion" size="0.01 0.1 0.01" pos="0 0.1 0"/>
+            <geom class="extrusion" size="0.01 0.15 0.01" pos="0 0.15 0"/>
             <joint name="L_coupler_joint" type="hinge" pos="0 0 0" axis="0 0 1" damping="0.1"/>
-            
-            <body name="E1" pos="0 0.2 0">
+
+            <body name="E1" pos="0 0.3 0">
                 <site name="sL" pos="0 0 0" size="0.006"/>
             </body>
         </body>
@@ -37,10 +37,10 @@
         <joint name="R_cranker_joint" type="hinge" pos="0 0 0" axis="0 0 1" range="-3.14 3.14" limited="true" damping="0.1"/>
         
         <body name="Coupler_R" pos="0 0.2 0.02">
-            <geom class="extrusion" size="0.01 0.1 0.01" pos="0 0.1 0"/>
+            <geom class="extrusion" size="0.01 0.15 0.01" pos="0 0.15 0"/>
             <joint name="R_coupler_joint" type="hinge" pos="0 0 0" axis="0 0 1" damping="0.1"/>
-            
-            <body name="E2" pos="0 0.2 0">
+
+            <body name="E2" pos="0 0.3 0">
                 <site name="sR" pos="0 0 0" size="0.006"/>
             </body>
         </body>
@@ -48,12 +48,12 @@
     </worldbody>
 
     <keyframe>
-        <key name="init" qpos="0 -0.3844 0 0.3844"/>
+        <key name="init" qpos="0 0 0 0"/>
     </keyframe>
     
     <actuator>
-        <position name="servo_L" joint="L_cranker_joint" ctrlrange="-3.14 3.14" kp="50" />
-        <position name="servo_R" joint="R_cranker_joint" ctrlrange="-3.14 3.14" kp="50"/>
+        <position name="servo_L" joint="L_cranker_joint" ctrlrange="-3.14 3.14" kp="300" kv="10"/>
+        <position name="servo_R" joint="R_cranker_joint" ctrlrange="-3.14 3.14" kp="300" kv="10"/>
     </actuator>
     <equality>
         <connect site1="sL" site2="sR"/>
