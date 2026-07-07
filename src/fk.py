@@ -1,8 +1,8 @@
 from math import cos, sin, sqrt
-import tomli
+import tomllib
 
 with open("../config.toml", "rb") as f:
-    config = tomli.load(f)
+    config = tomllib.load(f)
 
 l = config["links"]["PROXIMAL"]
 r = config["links"]["DISTAL"]
