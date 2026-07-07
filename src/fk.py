@@ -8,7 +8,7 @@ b = config["links"]["BASE"]
 
 def x_sol(y: float, th1: float, th2: float):
     num = b*b + 2*b*l*cos(th2) + 2*l*y*(sin(th1) - sin(th2))
-    den = 2*b - 2*l*(cos(th1)+cos(th2))
+    den = 2*b - 2*l*cos(th1) + 2*l*cos(th2)
     return num/den
 
 def y_sol(th1: float, th2: float):
