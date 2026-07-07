@@ -34,5 +34,7 @@ def y_sol(th1: float, th2: float):
 
 def forward(th1: float, th2: float):
     y1, y2 = y_sol(th1, th2)
+    if y1 is None:
+        return None
     x1, x2 = x_sol(y1, th1, th2), x_sol(y2, th1, th2)
-    return ((x1,y1), (x2,y2))
+    return ((x1, y1), (x2, y2))

@@ -2,3 +2,6 @@
 PROXIMAL = 220
 DISTAL = 300
 BASE = 150
+
+[limits]
+JOINT_SOFT = 2.9
