@@ -1,10 +1,7 @@
 from math import acos, atan2, sqrt, pi
-from utils import clamp
-import tomllib
+from .utils import load_config, clamp
 
-with open("../config.toml", "rb") as f:
-    config = tomllib.load(f)
-
+config = load_config()
 l = config["links"]["PROXIMAL"]
 r = config["links"]["DISTAL"]
 b = config["links"]["BASE"]

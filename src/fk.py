@@ -1,9 +1,7 @@
 from math import cos, sin, sqrt
-import tomllib
+from .utils import load_config
 
-with open("../config.toml", "rb") as f:
-    config = tomllib.load(f)
-
+config = load_config()
 l = config["links"]["PROXIMAL"]
 r = config["links"]["DISTAL"]
 b = config["links"]["BASE"]
@@ -34,7 +32,7 @@ def y_sol(th1: float, th2: float):
 
     return (root1, root2)
 
-def fk(th1: float, th2: float):
+def forward(th1: float, th2: float):
     y1, y2 = y_sol(th1, th2)
     x1, x2 = x_sol(y1, th1, th2), x_sol(y2, th1, th2)
     return ((x1,y1), (x2,y2))
