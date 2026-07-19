@@ -10,9 +10,8 @@ class ILC:
         self.g = gain
         self.error_norms = []
 
-    def step(self, actual: np.ndarray, desired: np.ndarray) -> np.ndarray:
+    def step(self, actual: np.ndarray, desired: np.ndarray) -> None:
         """call after each trial. Returns next u to run"""
         e = desired - actual
         self.error_norms.append(np.linalg.norm(e))
-        self.u = self.u + self.g * e
-        return self.u
+        self.u = self.u + self.g * e    # * u gets mutated in each call

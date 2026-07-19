@@ -1,8 +1,8 @@
 <mujoco>
     <!-- <compiler angle="degree"/> -->
-    <!-- <option timestep="0.001" integrator="implicitfast"> -->
-        <!-- <flag warmstart="enable"/> -->
-    <!-- </option> -->
+    <option timestep="0.001" integrator="implicitfast">
+        <flag warmstart="enable"/>
+    </option>
     <default>
         <!-- reusable components -->
         <default class="extrusion">
