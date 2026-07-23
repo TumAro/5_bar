@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="810mm"
+   height="420mm"
+   viewBox="0 0 810 420"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.4 (1:1.4.4+202605061436+dcaf3e7d9e)"
+   sodipodi:docname="base.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showborder="true"
+     inkscape:zoom="0.4174537"
+     inkscape:cx="709.06066"
+     inkscape:cy="794.10003"
+     inkscape:window-width="1920"
+     inkscape:window-height="1046"
+     inkscape:window-x="0"
+     inkscape:window-y="34"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1;opacity:1;paint-order:normal"
+       id="rect1"
+       width="809.89697"
+       height="419.89697"
+       x="0.051518999"
+       y="0.051518999"
+       inkscape:label="border" />
+    <g
+       id="g8"
+       inkscape:label="legs"
+       style="fill:none;stroke:#000000;stroke-opacity:1;stroke-width:0.1;stroke-dasharray:none">
+      <rect
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect4"
+         width="59.900116"
+         height="159.90012"
+         x="10.049943"
+         y="220.04994" />
+      <rect
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect5"
+         width="59.900116"
+         height="159.90012"
+         x="80.049942"
+         y="220.04994" />
+    </g>
+    <g
+       id="g7"
+       inkscape:label="slanted legs"
+       style="fill:none;stroke:#000000;stroke-opacity:1;stroke-width:0.1;stroke-dasharray:none">
+      <rect
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.11309388;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect6"
+         width="59.900116"
+         height="204.51585"
+         x="-25.383307"
+         y="281.44885"
+         transform="matrix(1,0,0.62347031,0.78184703,0,0)" />
+      <rect
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.11309388;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect7"
+         width="59.900116"
+         height="204.51585"
+         x="44.616695"
+         y="281.44885"
+         transform="matrix(1,0,0.62347031,0.78184703,0,0)" />
+    </g>
+    <g
+       id="g9"
+       inkscape:label="base"
+       style="fill:none;stroke:#000000;stroke-opacity:1;stroke-width:0.1;stroke-dasharray:none">
+      <path
+         id="rect3"
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         d="M 10.050075,10.050075 V 210.15003 H 90.103172 V 140.17996 H 230.09694 v 69.97007 h 80.05309 V 10.050075 Z" />
+      <rect
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect8"
+         width="20.050125"
+         height="39.999874"
+         x="90.050064"
+         y="70.050064" />
+      <rect
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect9"
+         width="20.050125"
+         height="39.999874"
+         x="210.05006"
+         y="70.050064" />
+    </g>
+  </g>
+</svg>
