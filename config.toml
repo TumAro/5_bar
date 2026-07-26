@@ -5,3 +5,7 @@ BASE = 120
 
 [limits]
 JOINT_SOFT = 2.9
+
+[vision]
+THETA_OFFSET_L = 0.0
+THETA_OFFSET_R = 0.0
