@@ -1,0 +1,10 @@
+# Used by `arduino-cli compile <folder>`; profile pins core + libs and auto-installs them.
+profiles:
+  uno:
+    fqbn: arduino:avr:uno
+    platforms:
+      - platform: arduino:avr (1.8.8)
+    libraries:
+      - Servo (1.3.0)
+default_profile: uno
+default_fqbn: arduino:avr:uno

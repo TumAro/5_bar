@@ -10,6 +10,11 @@ JOINT_SOFT = 2.9
 THETA_OFFSET_L = 0.0
 THETA_OFFSET_R = 0.0
 
+[servo]
+# deg added to every command; set so theta=0 lands on the model's zero pose (see calibration)
+OFFSET_L = 5.0
+OFFSET_R = 5.0
+
 [serial]
 PORT = "/dev/ttyACM0"
 BAUD = 115200
