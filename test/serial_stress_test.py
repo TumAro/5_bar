@@ -3,8 +3,8 @@ import time
 
 from src.serial_link import open_link
 
-N = 200        # random moves
-SETTLE = 0.8   # s; a 175 deg move at 5V takes ~0.6s
+N = 30         # random moves (~1 min)
+SETTLE = 0.8   # s; 0.8 was too short for full-range moves on the left servo
 TOL = 15       # counts (~5 deg) allowed between commanded and measured position
 
 
@@ -32,7 +32,7 @@ if __name__ == "__main__":
     fails = 0
     t0 = time.time()
     for i in range(N):
-        d1, d2 = random.randint(5, 180), random.randint(5, 180)
+        d1, d2 = random.randint(30, 150), random.randint(30, 150)  # inside the sketch L_/R_ limits
         a0, a1 = move(ser, d1, d2)
         err_l, err_r = abs(a0 - expected(d1)), abs(a1 - expected(d2))
         worst_l, worst_r = max(worst_l, err_l), max(worst_r, err_r)

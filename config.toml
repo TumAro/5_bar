@@ -1,7 +1,7 @@
 [links]
 PROXIMAL = 150
-DISTAL = 200
-BASE = 120
+DISTAL = 250
+BASE = 230
 
 [limits]
 JOINT_SOFT = 2.9
@@ -13,7 +13,7 @@ THETA_OFFSET_R = 0.0
 [servo]
 # deg added to every command; set so theta=0 lands on the model's zero pose (see calibration)
 OFFSET_L = 5.0
-OFFSET_R = 5.0
+OFFSET_R = 8.0
 
 [serial]
 PORT = "/dev/ttyACM0"

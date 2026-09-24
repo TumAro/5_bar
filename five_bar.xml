@@ -17,34 +17,34 @@
     <geom name="floor" type="plane" pos="0 0 0" size="5 5 0.1" rgba="0.6 0.6 0.6 1"/>
 
     <!-- Left Link -->
-    <body name="Crank_L" pos="-0.06 0 0.01">
+    <body name="Crank_L" pos="-0.115 0 0.01">
         <inertial pos="0 0.075 0" mass="0.133" diaginertia="2.5381e-4 8.867e-6 2.5381e-4"/>
         <geom class="extrusion" size="0.01 0.075 0.01" pos="0 0.075 0"/>
         <joint name="L_cranker_joint" type="hinge" pos="0 0 0" axis="0 0 1" range="-3.14 3.14" limited="true" damping="0.1"/>
 
         <body name="Coupler_L" pos="0 0.15 0.02">
-            <inertial pos="0 0.095 0" mass="0.175" diaginertia="5.8917e-4 1.167e-5 5.8917e-4"/>
-            <geom class="extrusion" size="0.01 0.1 0.01" pos="0 0.1 0"/>
+            <inertial pos="0 0.11875 0" mass="0.21875" diaginertia="1.1466e-3 1.458e-5 1.1466e-3"/>
+            <geom class="extrusion" size="0.01 0.125 0.01" pos="0 0.125 0"/>
             <joint name="L_coupler_joint" type="hinge" pos="0 0 0" axis="0 0 1" damping="0.1"/>
 
-            <body name="E1" pos="0 0.2 0">
+            <body name="E1" pos="0 0.25 0">
                 <site name="sL" pos="0 0 0" size="0.006"/>
             </body>
         </body>
     </body>
 
     <!-- Rght Link -->
-    <body name="Crank_R" pos="0.06 0 0.01">
+    <body name="Crank_R" pos="0.115 0 0.01">
         <inertial pos="0 0.075 0" mass="0.133" diaginertia="2.5381e-4 8.867e-6 2.5381e-4"/>
         <geom class="extrusion" size="0.01 0.075 0.01" pos="0 0.075 0"/>
         <joint name="R_cranker_joint" type="hinge" pos="0 0 0" axis="0 0 1" range="-3.14 3.14" limited="true" damping="0.1"/>
 
         <body name="Coupler_R" pos="0 0.15 0.02">
-            <inertial pos="0 0.095 0" mass="0.175" diaginertia="5.8917e-4 1.167e-5 5.8917e-4"/>
-            <geom class="extrusion" size="0.01 0.1 0.01" pos="0 0.1 0"/>
+            <inertial pos="0 0.11875 0" mass="0.21875" diaginertia="1.1466e-3 1.458e-5 1.1466e-3"/>
+            <geom class="extrusion" size="0.01 0.125 0.01" pos="0 0.125 0"/>
             <joint name="R_coupler_joint" type="hinge" pos="0 0 0" axis="0 0 1" damping="0.1"/>
 
-            <body name="E2" pos="0 0.2 0">
+            <body name="E2" pos="0 0.25 0">
                 <site name="sR" pos="0 0 0" size="0.006"/>
             </body>
         </body>

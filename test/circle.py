@@ -1,7 +1,7 @@
 import numpy as np
 from src import inverse, waypoint2traj, unwrap
 
-def circle_trajectory(center: tuple[float, float] = (75, 250), radius: float = 80, N = 16):
+def circle_trajectory(center: tuple[float, float] = (115, 315), radius: float = 50, N = 16, timesteps: int = 4000):
 
     angles = np.linspace(0, 2 * np.pi, N, endpoint=False)
     
@@ -13,4 +13,4 @@ def circle_trajectory(center: tuple[float, float] = (75, 250), radius: float = 8
     unwrapped = list(zip(unwrap(inverse_x), unwrap(inverse_y)))
     unwrapped.append(unwrapped[0])
     
-    return waypoint2traj(unwrapped, timesteps=4000)
+    return waypoint2traj(unwrapped, timesteps=timesteps)
