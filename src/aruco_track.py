@@ -1,15 +1,13 @@
 import sys
-from math import atan2
+from math import atan2, cos, sin
 from pathlib import Path
 
 import cv2
-import numpy as np
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from src.utils import load_config
 
 config = load_config()
-BASE_M = config["links"]["BASE"] / 1000
 
 L_ANCHOR_ID = 10
 R_ANCHOR_ID = 11
@@ -23,42 +21,38 @@ aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
 detector = cv2.aruco.ArucoDetector(aruco_dict, cv2.aruco.DetectorParameters())
 
 
-def _centers(corners, ids):
+def _markers(corners, ids):
+    """id -> 4x2 corners, y flipped so angles run CCW like the kinematics."""
     if ids is None:
         return {}
-    return {int(i): np.array([c[0].mean(axis=0)[0], -c[0].mean(axis=0)[1]])
-            for c, i in zip(corners, ids.flatten())}
+    return {int(i): c[0] * [1, -1] for c, i in zip(corners, ids.flatten())}
 
 
-def thetas_from_points(pts: dict):
-    """pixel-center dict -> (theta1, theta2), None per side if that marker's missing."""
-    if L_ANCHOR_ID not in pts or R_ANCHOR_ID not in pts:
+def thetas_from_markers(m: dict):
+    """marker corners -> (theta1, theta2), None per side if that marker's missing.
+
+    Crank angle is the crank marker's own edge direction, so anchors only set the
+    base direction and can sit anywhere fixed. Rotation survives parallax, positions don't.
+    """
+    if L_ANCHOR_ID not in m or R_ANCHOR_ID not in m:
         return None, None
 
-    anchor_vec = pts[R_ANCHOR_ID] - pts[L_ANCHOR_ID]
-    rot = atan2(anchor_vec[1], anchor_vec[0])
+    base = m[R_ANCHOR_ID].mean(axis=0) - m[L_ANCHOR_ID].mean(axis=0)
+    rot = atan2(base[1], base[0])
 
-    theta1 = theta2 = None
-    if L_CRANK_ID in pts:
-        v = pts[L_CRANK_ID] - pts[L_ANCHOR_ID]
-        theta1 = atan2(v[1], v[0]) - rot + THETA_OFFSET_L
-    if R_CRANK_ID in pts:
-        v = pts[R_CRANK_ID] - pts[R_ANCHOR_ID]
-        theta2 = atan2(v[1], v[0]) - rot + THETA_OFFSET_R
+    def angle(marker_id, offset):
+        if marker_id not in m:
+            return None
+        edge = m[marker_id][1] - m[marker_id][0]  # top-left -> top-right
+        a = atan2(edge[1], edge[0]) - rot + offset
+        return atan2(sin(a), cos(a))
 
-    return theta1, theta2
+    return angle(L_CRANK_ID, THETA_OFFSET_L), angle(R_CRANK_ID, THETA_OFFSET_R)
 
 
 def get_thetas(frame):
     corners, ids, _ = detector.detectMarkers(frame)
-    pts = _centers(corners, ids)
-    theta1, theta2 = thetas_from_points(pts)
-
-    if L_ANCHOR_ID in pts and R_ANCHOR_ID in pts:
-        px_base = np.linalg.norm(pts[R_ANCHOR_ID] - pts[L_ANCHOR_ID])
-        if px_base < 1:
-            print("warning: anchors basically coincident in frame, check marker placement")
-
+    theta1, theta2 = thetas_from_markers(_markers(corners, ids))
     return theta1, theta2, corners, ids
 
 
