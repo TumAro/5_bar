@@ -16,6 +16,7 @@ R_CRANK_ID = 1
 
 THETA_OFFSET_L = config["vision"]["THETA_OFFSET_L"]
 THETA_OFFSET_R = config["vision"]["THETA_OFFSET_R"]
+CAM = config["vision"]["CAM"]
 
 aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
 detector = cv2.aruco.ArucoDetector(aruco_dict, cv2.aruco.DetectorParameters())
@@ -57,7 +58,11 @@ def get_thetas(frame):
 
 
 def main():
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(CAM, cv2.CAP_V4L2)
+    # OpenCV defaults to 640x480 (4:3, narrower view); ask for full 16:9 sensor width. MJPG needed for 1080p at 30 fps
+    cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*"MJPG"))
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
     while True:
         ok, frame = cap.read()
         if not ok:
