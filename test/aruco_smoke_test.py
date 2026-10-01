@@ -14,11 +14,7 @@ if __name__ == "__main__":
     loop = circle_trajectory(N=400, timesteps=2)
     traj = loop + loop[::-1]  # one loop forward, one back
     ser = open_link()
-    cap = cv2.VideoCapture(at.CAM, cv2.CAP_V4L2)
-    # OpenCV defaults to 640x480 (4:3, narrower view); ask for full 16:9 sensor width. MJPG needed for 1080p at 30 fps
-    cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*"MJPG"))
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
+    cap = at.open_camera()
     win = "aruco_smoke_test (q to quit)"
     cv2.namedWindow(win, cv2.WINDOW_NORMAL | cv2.WINDOW_KEEPRATIO)
     cv2.setWindowProperty(win, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)

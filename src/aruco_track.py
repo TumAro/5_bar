@@ -57,12 +57,17 @@ def get_thetas(frame):
     return theta1, theta2, corners, ids
 
 
-def main():
+def open_camera():
     cap = cv2.VideoCapture(CAM, cv2.CAP_V4L2)
     # OpenCV defaults to 640x480 (4:3, narrower view); ask for full 16:9 sensor width. MJPG needed for 1080p at 30 fps
     cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*"MJPG"))
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
+    return cap
+
+
+def main():
+    cap = open_camera()
     while True:
         ok, frame = cap.read()
         if not ok:

@@ -4,7 +4,7 @@ import time
 from src.serial_link import open_link
 
 N = 30         # random moves (~1 min)
-SETTLE = 0.8   # s; 0.8 was too short for full-range moves on the left servo
+SETTLE = 1.5   # s; 0.8 was too short for big moves on the left servo at 5V
 TOL = 15       # counts (~5 deg) allowed between commanded and measured position
 
 
