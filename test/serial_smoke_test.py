@@ -14,4 +14,5 @@ if __name__ == "__main__":
     for theta1, theta2 in traj:
         send_theta(ser, *u2theta((theta1, theta2)))  # circle_trajectory is in u (servo) angles
         time.sleep(dt)
+    send_theta(ser, 0,0) # home position
     ser.close()
