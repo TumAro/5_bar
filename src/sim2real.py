@@ -1,4 +1,3 @@
-
 import time, csv
 from math import degrees
 
@@ -7,8 +6,10 @@ from src.utils import u2theta
 from test.circle import circle_trajectory
 
 from src import aruco_track as at
+from src.serial_link import OFFSET_L, OFFSET_R
 
-LOOPS = 3  # number of loop
+
+LOOPS = 10
 T = 8 # total second of each loop
 
 if __name__ == "__main__":
@@ -39,8 +40,12 @@ if __name__ == "__main__":
     send_theta(ser, 0,0)
     ser.close()
 
-    with open("notebooks/sim2real_log.csv", "w", newline="") as f:
+    out = time.strftime(f"notebooks/data/sim2real_{LOOPS}_%Y%m%d_%H%M%S.csv")
+    with open(out, "w", newline="") as f:
+        # calibration used for this run; read the CSV with pd.read_csv(out, comment="#")
+        f.write(f"# THETA_OFFSET_L={at.THETA_OFFSET_L} THETA_OFFSET_R={at.THETA_OFFSET_R} "
+                f"OFFSET_L={OFFSET_L} OFFSET_R={OFFSET_R} T={T} LOOPS={LOOPS}\n")
         w = csv.writer(f)
         w.writerow(["t", "cmd1", "cmd2", "cam1", "cam2"])
         w.writerows(rows)
-        print("LOG saved to report/sim2real_log.csv")
+        print(f"LOG saved to {out}")
